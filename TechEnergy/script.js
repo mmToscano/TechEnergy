@@ -20,7 +20,7 @@ function calcular(){
     document.querySelector('#resultado').innerHTML = "R$: " + valorFinal.toFixed(2);
 }
 
-function ocultar(e){
+function destacar(e){
 
     document.querySelectorAll('.resultado')[0].innerHTML = 'Resultado R$';
     document.querySelectorAll('.resultado')[1].innerHTML = 'Resultado R$';
@@ -55,33 +55,6 @@ function ocultar(e){
     }
 }
 
-
-
-function mostrarGeladeira(){
-    var img1 = document.getElementById('img1')
-    img1.src =("C:/Users/MMora/Documents/imagens eletrodomésticos/geladeira a.jpg");
-    img1.classList.add('imagensLavadora')
-
-    var img2 = document.getElementById('img2')
-    img2.src =("C:/Users/MMora/Documents/imagens eletrodomésticos/geladeira b.jpg");
-    img2.classList.add('imagensLavadora')
-}
-
-
-function mostrarLavadora(){
-    var img1 = document.getElementById('img1')
-    img1.src =("C:/Users/MMora/Documents/imagens eletrodomésticos/lavadora a.jpg")
-    img1.classList.add('imagensLavadora')
-
-    var img2 = document.getElementById('img2')
-    img2.src =("C:/Users/MMora/Documents/imagens eletrodomésticos/lavadora b.jpg")
-    img2.classList.add('imagensLavadora')
-
-    var img3 = document.getElementById('img3')
-    img3.src =("C:/Users/MMora/Documents/imagens eletrodomésticos/lavadora b.jpg")
-    img3.classList.add('imagensLavadora')
-}
-
 function eletrodomesticoFactory(tipo, modelo, kWh) {
     return {
       tipo: tipo,
@@ -92,8 +65,10 @@ function eletrodomesticoFactory(tipo, modelo, kWh) {
 
 let img1lavadora = eletrodomesticoFactory('lavadora', 'consul', 0.80);
 let img2lavadora = eletrodomesticoFactory('lavadora','Brastemp', 1);
+let img3lavadora = eletrodomesticoFactory('lavadora', 'samsung', 1.50);
 let img1geladeira = eletrodomesticoFactory('geladeira', 'wiz', 0.75);
 let img2geladeira = eletrodomesticoFactory('geladeira', 'brastemp', 2);
+let img3geladeira = eletrodomesticoFactory('geladeira', 'seila', 1.25);
 
 
 function comparacao(){
@@ -113,26 +88,70 @@ function calcularComparacao(tipo){
         case 0:
             resultadoImg1 = (img1lavadora.kWh * 24).toFixed(2);
             resultadoImg2 = (img2lavadora.kWh * 24).toFixed(2);
+            resultadoImg3 = (img3lavadora.kWh * 24).toFixed(2);
             document.querySelector('#result1').innerHTML = "Resultado R$: " + resultadoImg1;
             document.querySelector('#result2').innerHTML = "Resultado R$: " + resultadoImg2;
+            document.querySelector('#result3').innerHTML = "Resultado R$: " + resultadoImg3;
 
             if(resultadoImg1 < resultadoImg2){
-                //document.getElementById('img1').classList.remove('bordaImagens');
-                //document.getElementById('img1').classList.add('bordaImagens2');
-                document.getElementById('img1').style.borderColor = red;
+
+                document.getElementById('img1').classList.remove('mostrarImagens');
+                document.getElementById('img1').classList.add('bordaImagens2');
             }else{
-                //document.getElementById('img1').classList.remove('bordaImagens');
-                //document.getElementById('img2').classList.add('bordaImagens2');
-                document.getElementById('img2').style.borderColor = red;
+                document.getElementById('img1').classList.remove('mostrarImagens');
+                document.getElementById('img2').classList.add('bordaImagens2');
             }
 
         break;
+
         case 1:
-            document.querySelector('#result1').innerHTML = "Resultado R$: " + (img1geladeira.kWh * 24).toFixed(2);
-            document.querySelector('#result2').innerHTML = "Resultado R$: " + (img2geladeira.kWh * 24).toFixed(2);
+            resultadoImg1 = (img1geladeira.kWh * 24).toFixed(2);
+            resultadoImg2 = (img2geladeira.kWh * 24).toFixed(2);
+            resultadoImg3 = (img3geladeira.kWh * 24).toFixed(2);
+            document.querySelector('#result1').innerHTML = "Resultado R$: " + resultadoImg1;
+            document.querySelector('#result2').innerHTML = "Resultado R$: " + resultadoImg2;
+            document.querySelector('#result3').innerHTML = "Resultado R$: " + resultadoImg3;
+
+            if(resultadoImg1 < resultadoImg2){
+
+                document.getElementById('img1').classList.remove('mostrarImagens');
+                document.getElementById('img1').classList.add('bordaImagens2');
+            }else{
+                document.getElementById('img1').classList.remove('mostrarImagens');
+                document.getElementById('img2').classList.add('bordaImagens2');
+            }
             break;
     }
     
+}
+
+function mostrarGeladeira(){
+    var img1 = document.getElementById('img1')
+    img1.src =("C:/Users/MMora/Documents/imagens eletrodomésticos/geladeira a.jpg");
+    img1.classList.add('mostrarImagens')
+
+    var img2 = document.getElementById('img2')
+    img2.src =("C:/Users/MMora/Documents/imagens eletrodomésticos/geladeira b.jpg");
+    img2.classList.add('mostrarImagens')
+
+    var img3 = document.getElementById('img3')
+    img3.src =("C:/Users/MMora/Documents/imagens eletrodomésticos/geladeira c.jpg")
+    img3.classList.add('mostrarImagens')
+}
+
+
+function mostrarLavadora(){
+    var img1 = document.getElementById('img1')
+    img1.src =("C:/Users/MMora/Documents/imagens eletrodomésticos/lavadora a.jpg")
+    img1.classList.add('mostrarImagens')
+
+    var img2 = document.getElementById('img2')
+    img2.src =("C:/Users/MMora/Documents/imagens eletrodomésticos/lavadora b.jpg")
+    img2.classList.add('mostrarImagens')
+
+    var img3 = document.getElementById('img3')
+    img3.src =("C:/Users/MMora/Documents/imagens eletrodomésticos/lavadora c.jpg")
+    img3.classList.add('mostrarImagens')
 }
 
 

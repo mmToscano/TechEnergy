@@ -50,11 +50,32 @@ button{
 }
 
 .resultado{
+    text-align: center;
     display: inline-block;
     width: 150px;
     border: 1px solid black;
     margin-right: 50px;
     margin-left: 50px;
 }
+
+.bordaImagens{
+    display: inline-block;
+    border: 3px solid black;
+    width: 300px;
+    height: 300px;
+}
+
+.bordaImagens2{
+    display: inline-block;
+    border: 3px solid red;
+    width: 300px;
+    height: 300px;
+}
+
+#comparar{
+    margin: 15px;
+}
+
+
 
 

@@ -1,6 +1,12 @@
 let valor1;
 let valor2;
 
+//Abaixo estão os botões usados nas funcionalidade "comparação de eltrodomésticos". Eles serão usados em alguns métodos abaixo.
+let lavadoras = document.querySelector('#lavadoras');
+let geladeiras = document.querySelector('#geladeiras');
+let microondas = document.querySelector('#microondas');
+let chuveiros = document.querySelector('#chuveiros');
+
 
 function mudou(){
 
@@ -15,10 +21,9 @@ function calcular(){
 }
 
 function ocultar(e){
-    let lavadoras = document.querySelector('#lavadoras');
-    let geladeiras = document.querySelector('#geladeiras');
-    let microondas = document.querySelector('#microondas');
-    let chuveiros = document.querySelector('#chuveiros');
+
+    document.querySelectorAll('.resultado')[0].innerHTML = 'Resultado R$';
+    document.querySelectorAll('.resultado')[1].innerHTML = 'Resultado R$';
 
     switch(e.target.id){
         case 'lavadoras':
@@ -71,6 +76,10 @@ function mostrarLavadora(){
     var img2 = document.getElementById('img2')
     img2.src =("C:/Users/MMora/Documents/imagens eletrodomésticos/lavadora b.jpg")
     img2.classList.add('imagensLavadora')
+
+    var img3 = document.getElementById('img3')
+    img3.src =("C:/Users/MMora/Documents/imagens eletrodomésticos/lavadora b.jpg")
+    img3.classList.add('imagensLavadora')
 }
 
 function eletrodomesticoFactory(tipo, modelo, kWh) {
@@ -89,16 +98,11 @@ let img2geladeira = eletrodomesticoFactory('geladeira', 'brastemp', 2);
 
 function comparacao(){
 
-    let lavadoras = document.querySelector('#lavadoras');
-    let geladeiras = document.querySelector('#geladeiras');
-    let microondas = document.querySelector('#microondas');
-    let chuveiros = document.querySelector('#chuveiros');
-
     let tipos = [lavadoras, geladeiras, microondas, chuveiros];
 
-    for(item in tipos){
-        if(item.style){
-            calcularComparacao();
+    for(var i = 0; i < tipos.length; i++){
+        if(tipos[i].classList.contains('destaque') == true){
+            calcularComparacao(i);
         }
     }
 }
@@ -107,12 +111,31 @@ function calcularComparacao(tipo){
 
     switch(tipo){
         case 0:
-        document.querySelector('result1').innerHTML = (img1lavadora.kWh * 24).toFixed(2);
-        document.querySelector('result2').innerHTML = (img2lavadora.kWh * 24).toFixed(2);
+            resultadoImg1 = (img1lavadora.kWh * 24).toFixed(2);
+            resultadoImg2 = (img2lavadora.kWh * 24).toFixed(2);
+            document.querySelector('#result1').innerHTML = "Resultado R$: " + resultadoImg1;
+            document.querySelector('#result2').innerHTML = "Resultado R$: " + resultadoImg2;
+
+            if(resultadoImg1 < resultadoImg2){
+                //document.getElementById('img1').classList.remove('bordaImagens');
+                //document.getElementById('img1').classList.add('bordaImagens2');
+                document.getElementById('img1').style.borderColor = red;
+            }else{
+                //document.getElementById('img1').classList.remove('bordaImagens');
+                //document.getElementById('img2').classList.add('bordaImagens2');
+                document.getElementById('img2').style.borderColor = red;
+            }
+
         break;
+        case 1:
+            document.querySelector('#result1').innerHTML = "Resultado R$: " + (img1geladeira.kWh * 24).toFixed(2);
+            document.querySelector('#result2').innerHTML = "Resultado R$: " + (img2geladeira.kWh * 24).toFixed(2);
+            break;
     }
     
 }
+
+
 
 
 
@@ -145,3 +168,4 @@ function mostrarGeladeira(){
     divImagens.appendChild(image2)
 }
 */
+

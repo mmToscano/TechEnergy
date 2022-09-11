@@ -32,16 +32,18 @@
         <button id='microondas'  onclick="ocultar(event)" class="opcoes">Microondas</button>
         <button id='chuveiros'  onclick="ocultar(event)" class="opcoes">Chuveiros</button>
         <div id="imagens">
-            <span>
+            <div class="bordaImagens">
                 <img id="img1" src="" alt="">
-            </span>
-            <span>
+                <h4 id="result1" class="resultado">Resultado R$: </h4>
+            </div>
+            <div class="bordaImagens">
                 <img id="img2" src="" alt="">
-            </span>
-            <br>
-            <h4 id="result1" class="resultado">Resultado R$:</h4>
-            <h4 id="result2" class="resultado">Resultado R$:</h4>
-
+                <h4 id="result2" class="resultado">Resultado R$: </h4>
+            </div>
+            <div class="bordaImagens">
+                <img id="img3" src="" alt="">
+                <h4 id="result3" class="resultado">Resultado R$: </h4>
+            </div>
             <br>
             <button id="comparar" onclick="comparacao()">comparar</button>
         </div>

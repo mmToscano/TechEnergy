@@ -1,25 +1,38 @@
+body{
+    background-color: #F5E59E;
+}
+
+.filas{
+    border: 1px solid black;
+    text-align: center;
+    width: 75%;
+    margin: 20px auto;
+}
+
 #eletrodomesticos{
     border: 1px solid black;
     text-align: center;
     width: 75%;
     margin: 0 auto;
+    background-color: #cac3ad;
 }
 
 #conversaoDeEnergia{
-    border: 1px solid black;
     text-align: center;
     width: 75%;
     margin: 0 auto;
+    background-color: #cac3ad;
 }
 
 #titulo{
     font-size: 50px;
-    color: rgb(202, 202, 69);
+    color: BLACK;
     text-align: center;
 }
 
 #input{
-    margin-top: 2px;
+    margin-top: 20px;
+    margin-bottom: 50px;
 }
 
 .opcoes{
@@ -46,7 +59,7 @@ button{
     border-radius: 3px;
 }
 
-.resultado{
+.resultadoImagens{
     text-align: center;
     display: inline-block;
     width: 150px;
@@ -56,6 +69,16 @@ button{
     margin-top: 5px;
 }
 
+#resultado{
+    text-align: center;
+    display: inline-block;
+    width: 150px;
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-bottom: 15px;
+}
 .configuracaoImagens{
     display: inline-block;
     border: 3px solid black;
@@ -75,6 +98,23 @@ button{
     margin: 15px;
 }
 
+.formulario h4{
+    display: inline-block;
+    text-align: left;
+}
 
+#filaDeFato{
+    text-align: center;
+}
 
+#filaDeFato h4{
+    background-color: gold;
+    width: 350px;
+    text-align: center;
+    padding: 15px;
+    margin: 10px auto; 
+}
 
+.botoesParaModificarFila{
+    padding-bottom: 15px;
+}

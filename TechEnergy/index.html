@@ -18,7 +18,7 @@
         
         <input id='input' type="number" onkeyup="mudou()" placeholder="kilowats usados">
        
-        <p>resultado <h4 id="resultado"></h4></p>
+        <p><h2 id="resultado"></h2></p>
     </div>
 
     <br>
@@ -38,22 +38,47 @@
         <div>
             <div class="configuracaoImagens">
                 <img id="img1" src="" alt="">
-                <h4 id="result1" class="resultado">Resultado R$: </h4>
+                <h4 id="result1" class="resultadoImagens">Resultado R$: </h4>
             </div>
 
             <div class="configuracaoImagens">
                 <img id="img2" src="" alt="">
-                <h4 id="result2" class="resultado">Resultado R$: </h4>
+                <h4 id="result2" class="resultadoImagens">Resultado R$: </h4>
             </div>
 
             <div class="configuracaoImagens">
                 <img id="img3" src="" alt="">
-                <h4 id="result3" class="resultado">Resultado R$: </h4>
+                <h4 id="result3" class="resultadoImagens">Resultado R$: </h4>
             </div>
-            
+
             <br>
             <button id="comparar" onclick="comparacao()">comparar</button>
         </div>
+    </div>
+
+    <div class="filas">
+        
+        <h2>Adicionar eletrodomésticos</h2>
+
+        <div class="formulario">
+            <label for="tipo">tipo</label>
+            <input type="text" id="tipo"></input>
+            <label for="modelo">modelo</label>
+            <input type="text" id="modelo"></input>
+            <label for="kWh">kWh</label>
+            <input type="number" id="kWh"></input>
+        </div>
+
+        <br>
+
+        <div class="botoesParaModificarFila">
+            <button class="opcoes" onclick="adicionarNaFila()">Adicionar</button>
+            <button class="opcoes" onclick="retirarDaFila()">Tratar</button>
+        </div>
+        <div id="filaDeFato">
+
+        </div>
+        
     </div>
 
     <script src="script.js"></script>

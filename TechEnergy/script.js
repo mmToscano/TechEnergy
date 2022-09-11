@@ -17,15 +17,16 @@ function mudou(){
 
 function calcular(){
     let valorFinal = valor1 * valor2;
-    document.querySelector('#resultado').innerHTML = "R$: " + valorFinal.toFixed(2);
+    document.querySelector('#resultado').innerHTML = "Valor R$: " + valorFinal.toFixed(2);
 }
 
 function destacar(e){
     limparBordasDasImagens();
 
 
-    document.querySelectorAll('.resultado')[0].innerHTML = 'Resultado R$';
-    document.querySelectorAll('.resultado')[1].innerHTML = 'Resultado R$';
+    document.querySelectorAll('.resultadoImagens')[0].innerHTML = 'Resultado R$';
+    document.querySelectorAll('.resultadoImagens')[1].innerHTML = 'Resultado R$';
+    document.querySelectorAll('.resultadoImagens')[2].innerHTML = 'Resultado R$';
 
     switch(e.target.id){
         case 'lavadoras':
@@ -113,6 +114,35 @@ function calcularComparacao(tipo){
     
 }
 
+var fila = [];
+var elementos = document.getElementById('filaDeFato');
+var quantidadeElementos = 0;
+
+function adicionarNaFila(){
+    let tipo = document.querySelectorAll('.formulario input')[0].value;
+    let modelo = document.querySelectorAll('.formulario input')[1].value;
+    let kWh = document.querySelectorAll('.formulario input')[2].value;
+
+    item = eletrodomesticoFactory(tipo, modelo, kWh);
+
+    fila.push(item);
+    //limparInputs();
+    
+    var listItem = document.createElement('h4');
+    listItem.textContent = "tipo: " + item.tipo + " modelo: " + item.modelo + " kWh: " + item.kWh;
+    elementos.appendChild(listItem);
+}
+
+function retirarDaFila(){
+    fila.shift();
+    document.querySelectorAll('#filaDeFato h4')[quantidadeElementos].textContent = '';
+    //document.querySelectorAll('#filaDeFato h4')[quantidadeElementos].remove();
+    document.querySelectorAll('#filaDeFato h4')[quantidadeElementos].style.display = 'none';
+    //document.querySelectorAll('#filaDeFato h4')[quantidadeElementos].style.backgroundColor = 'white';
+
+    quantidadeElementos++;
+}
+
 function testeBooleano(resultadoImg1, resultadoImg2, resultadoImg3){
     if(resultadoImg1 < resultadoImg2 && resultadoImg1 < resultadoImg3){
         //document.getElementById('img1').classList.remove('mostrarImagens');
@@ -160,6 +190,12 @@ function limparBordasDasImagens(){
     document.getElementById('img2').classList.remove('bordaImagens');
     document.getElementById('img3').classList.remove('bordaImagens');
 
+}
+
+function limparInputs(){
+    document.querySelectorAll('.formulario input')[0].value = '';
+    document.querySelectorAll('.formulario input')[1].value = '';
+    document.querySelectorAll('.formulario input')[2].value = '';
 }
 
 

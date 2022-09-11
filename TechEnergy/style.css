@@ -1,9 +1,15 @@
 #eletrodomesticos{
     border: 1px solid black;
+    text-align: center;
+    width: 75%;
+    margin: 0 auto;
 }
 
 #conversaoDeEnergia{
     border: 1px solid black;
+    text-align: center;
+    width: 75%;
+    margin: 0 auto;
 }
 
 #titulo{
@@ -33,4 +39,22 @@
 .destaque{
     border: 3px solid red;
 }
+
+.imagensLavadora{
+    width: 300px;
+    height: 300px;
+}
+
+button{
+    border-radius: 3px;
+}
+
+.resultado{
+    display: inline-block;
+    width: 150px;
+    border: 1px solid black;
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
 

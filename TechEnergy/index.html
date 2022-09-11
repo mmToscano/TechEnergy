@@ -13,7 +13,7 @@
 
     <div id="conversaoDeEnergia">
         
-        <h1>titulin</h1>
+        <h1>Conversão de energia</h1>
         <input id='input' type="number" onkeyup="mudou()" placeholder="kWh">
         
         <input id='input' type="number" onkeyup="mudou()" placeholder="kilowats usados">
@@ -25,17 +25,28 @@
     <br>
 
     <div id="eletrodomesticos">
-        <h2>Eletrodomésticos</h2>
+        <h2>Comparação de eletrodomésticos</h2>
         <button id='lavadoras' onclick="ocultar(event)" class="opcoes">Lavadoras</button>
         <button id='geladeiras'  onclick="ocultar(event)" class="opcoes">Geladeiras</button>
         <br>
         <button id='microondas'  onclick="ocultar(event)" class="opcoes">Microondas</button>
         <button id='chuveiros'  onclick="ocultar(event)" class="opcoes">Chuveiros</button>
-        <div id="Imagens">
-            <img src="" alt="">
+        <div id="imagens">
+            <span>
+                <img id="img1" src="" alt="">
+            </span>
+            <span>
+                <img id="img2" src="" alt="">
+            </span>
+            <br>
+            <h4 id="result1" class="resultado">Resultado R$:</h4>
+            <h4 id="result2" class="resultado">Resultado R$:</h4>
+
+            <br>
+            <button id="comparar" onclick="comparacao()">comparar</button>
         </div>
+        <div></div>
     </div>
 
     <script src="script.js"></script>
-</body>
 </html>

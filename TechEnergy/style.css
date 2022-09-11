@@ -39,7 +39,7 @@
 .mostrarImagens{
     width: 285px;
     height: 285px;
-    border: 3px solid;
+    border: 3px solid black;
 }
 
 button{
@@ -64,7 +64,7 @@ button{
     margin: 5px;
 }
 
-.bordaImagens2{
+.bordaImagens{
     display: inline-block;
     border: 3px solid red;
     width: 285px;

@@ -12,7 +12,6 @@
     <h1 id="titulo">TechEnergy</h1>
 
     <div id="conversaoDeEnergia">
-        
         <h1>Conversão de energia</h1>
         <input id='input' type="number" onkeyup="mudou()" placeholder="kWh">
         
@@ -21,16 +20,16 @@
         <p><h2 id="resultado"></h2></p>
     </div>
 
-    <br>
-    <br>
 
+
+    <br>
     <div id="eletrodomesticos">
         <h2>Comparação de eletrodomésticos</h2>
 
-        <div>
+        <div id="botoesDeEscolha">
             <button id='lavadoras' onclick="destacar(event)" class="opcoes">Lavadoras</button>
             <button id='geladeiras'  onclick="destacar(event)" class="opcoes">Geladeiras</button>
-            <br>
+
             <button id='microondas'  onclick="destacar(event)" class="opcoes">Microondas</button>
             <button id='chuveiros'  onclick="destacar(event)" class="opcoes">Chuveiros</button>
         </div>
@@ -61,9 +60,9 @@
         <h2>Adicionar eletrodomésticos</h2>
 
         <div class="formulario">
-            <label for="tipo">tipo</label>
+            <label for="tipo">Tipo</label>
             <input type="text" id="tipo"></input>
-            <label for="modelo">modelo</label>
+            <label for="modelo">Modelo</label>
             <input type="text" id="modelo"></input>
             <label for="kWh">kWh</label>
             <input type="number" id="kWh"></input>

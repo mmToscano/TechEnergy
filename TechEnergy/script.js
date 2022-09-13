@@ -2,13 +2,6 @@
 let valor1;
 let valor2;
 
-//Abaixo estão os botões usados nas funcionalidade "comparação de eltrodomésticos". Eles serão usados em alguns métodos abaixo.
-let lavadoras = document.querySelector('#lavadoras');
-let geladeiras = document.querySelector('#geladeiras');
-let microondas = document.querySelector('#microondas');
-let chuveiros = document.querySelector('#chuveiros');
-
-
 function mudou(){
 
     valor1 = Number(document.querySelectorAll('#input')[0].value);
@@ -20,7 +13,15 @@ function calcular(){
     let valorFinal = valor1 * valor2;
     document.querySelector('#resultado').innerHTML = "Valor R$: " + valorFinal.toFixed(2);
 }
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Abaixo estão os botões usados nas funcionalidade "comparação de eltrodomésticos". Eles serão usados em alguns métodos abaixo.
+
+let lavadoras = document.querySelector('#lavadoras');
+let geladeiras = document.querySelector('#geladeiras');
+let microondas = document.querySelector('#microondas');
+let chuveiros = document.querySelector('#chuveiros');
 
 //Função para mudar a borda do botão e destacá-lo
 function destacar(e){
@@ -71,23 +72,23 @@ function eletrodomesticoFactory(tipo, modelo, kWh) {
       modelo: modelo,
       kWh: kWh
     }
-  }
+}
 
-let img1lavadora = eletrodomesticoFactory('lavadora', 'consul', 10);
-let img2lavadora = eletrodomesticoFactory('lavadora','Brastemp', 20);
-let img3lavadora = eletrodomesticoFactory('lavadora', 'samsung', 10);
+let img1lavadora = eletrodomesticoFactory('lavadora', 'consul', Math.floor(Math.random() * 10) + 1);
+let img2lavadora = eletrodomesticoFactory('lavadora','Brastemp', Math.floor(Math.random() * 10) + 1);
+let img3lavadora = eletrodomesticoFactory('lavadora', 'samsung', Math.floor(Math.random() * 10) + 1);
 
-let img1geladeira = eletrodomesticoFactory('geladeira', 'wiz', 7);
-let img2geladeira = eletrodomesticoFactory('geladeira', 'brastemp', 7);
-let img3geladeira = eletrodomesticoFactory('geladeira', 'seila', 3);
+let img1geladeira = eletrodomesticoFactory('geladeira', 'wiz', Math.floor(Math.random() * 10) + 1);
+let img2geladeira = eletrodomesticoFactory('geladeira', 'brastemp', Math.floor(Math.random() * 10) + 1);
+let img3geladeira = eletrodomesticoFactory('geladeira', 'continental', Math.floor(Math.random() * 10) + 1);
 
-let img1microondas = eletrodomesticoFactory('microondas', 'eletrolux', 5.55);
-let img2microondas = eletrodomesticoFactory('microondas', 'brastemp', 30.74);
-let img3microondas = eletrodomesticoFactory('microondas', 'LG', 10.22);
+let img1microondas = eletrodomesticoFactory('microondas', 'eletrolux', Math.floor(Math.random() * 10) + 1);
+let img2microondas = eletrodomesticoFactory('microondas', 'brastemp', Math.floor(Math.random() * 10) + 1);
+let img3microondas = eletrodomesticoFactory('microondas', 'LG', Math.floor(Math.random() * 10) + 1);
 
-let img1chuveiros = eletrodomesticoFactory('chuveiros', 'eletrolux', 10.76);
-let img2chuveiros = eletrodomesticoFactory('chuveiros', 'brastemp', 10.22);
-let img3chuveiros = eletrodomesticoFactory('chuveiros', 'LG', 10.22);
+let img1chuveiros = eletrodomesticoFactory('chuveiros', 'eletrolux', Math.floor(Math.random() * 10) + 1);
+let img2chuveiros = eletrodomesticoFactory('chuveiros', 'brastemp', Math.floor(Math.random() * 10) + 1);
+let img3chuveiros = eletrodomesticoFactory('chuveiros', 'LG', Math.floor(Math.random() * 10) + 1);
 
 
 
@@ -97,15 +98,15 @@ function comparacao(){
     let tipos = [lavadoras, geladeiras, microondas, chuveiros];
 
     for(var i = 0; i < tipos.length; i++){
-        if(tipos[i].classList.contains('destaque') == true){
+        if(tipos[i].classList.contains('destaque')){
             calcularComparacao(i);
         }
     }
 }
 
-function calcularComparacao(tipo){
+function calcularComparacao(opcaoBotaoClicado){
 
-    switch(tipo){
+    switch(opcaoBotaoClicado){
 
         case 0: //lavadoras
             resultadoImg1 = (img1lavadora.kWh * 24).toFixed(2);
@@ -157,7 +158,7 @@ function calcularComparacao(tipo){
 
 var fila = [];
 var elementos = document.getElementById('filaDeFato');
-var quantidadeElementos = 0;
+var quantidadeElementos = 0; 
 
 function adicionarNaFila(){
     let tipo = document.querySelectorAll('.formulario input')[0].value;
@@ -177,15 +178,15 @@ function adicionarNaFila(){
 function retirarDaFila(){
     fila.shift();
     document.querySelectorAll('#filaDeFato h4')[quantidadeElementos].textContent = '';
-    //document.querySelectorAll('#filaDeFato h4')[quantidadeElementos].remove();
     document.querySelectorAll('#filaDeFato h4')[quantidadeElementos].style.display = 'none';
-    //document.querySelectorAll('#filaDeFato h4')[quantidadeElementos].style.backgroundColor = 'white';
 
     quantidadeElementos++;
 }
 
+//teste booleano para o método comparação.
+
 function testeBooleano(resultadoImg1, resultadoImg2, resultadoImg3){
-    
+
     if(resultadoImg1 < resultadoImg2 && resultadoImg1 < resultadoImg3){
         document.getElementById('img1').classList.add('bordaImagens');
 
@@ -196,6 +197,7 @@ function testeBooleano(resultadoImg1, resultadoImg2, resultadoImg3){
         document.getElementById('img3').classList.add('bordaImagens');
     }
 
+    
     if(resultadoImg1 == resultadoImg2){
         document.getElementById('img1').classList.add('bordaImagens');
         document.getElementById('img2').classList.add('bordaImagens');
@@ -205,10 +207,11 @@ function testeBooleano(resultadoImg1, resultadoImg2, resultadoImg3){
         document.getElementById('img3').classList.add('bordaImagens');
         
     }else if(resultadoImg2 == resultadoImg3){
-        document.getElementById('img3').classList.add('bordaImagens');
         document.getElementById('img2').classList.add('bordaImagens');
+        document.getElementById('img3').classList.add('bordaImagens');
     }
 }
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //4 métodos para receber as 12 imagens. Cada método mexe com 3 imagens.
@@ -286,39 +289,3 @@ function limparInputs(){
     document.querySelectorAll('.formulario input')[1].value = '';
     document.querySelectorAll('.formulario input')[2].value = '';
 }
-
-
-
-
-
-
-
-
-    /*
-function mostrarLavadora(){
-    var divImagens = document.getElementById("imagens");
-    divImagens.textContent = '';
-    var image = document.createElement("img");
-    image.src =("/imagem/Lavadora-Brastemp.png")
-    image.classList.add('imagensLavadora');
-    var image2 = document.createElement("img");
-    image2.src =("/imagem/Lavadora-Brastemp2.png")
-    image2.classList.add('imagensLavadora');
-    divImagens.appendChild(image)
-    divImagens.appendChild(image2)
-}
-function mostrarGeladeira(){
-    var divImagens = document.getElementById("imagens");
-    divImagens.textContent = '';
-    var image = document.createElement("img");
-    var image2 = document.createElement("img");
-    image.src =("/imagem/geladeira-brastemp.png")
-    image.classList.add('imagensLavadora');
-    
-    image2.src =("/imagem/geladeira-brastemp2.png")
-    image2.classList.add('imagensLavadora');
-    divImagens.appendChild(image)
-    divImagens.appendChild(image2)
-}
-*/
-
